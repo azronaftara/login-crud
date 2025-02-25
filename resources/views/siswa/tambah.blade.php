@@ -2,7 +2,8 @@
 
 @section('konten')
 <h4>Tambah Siswa</h4>
-<form action="" method="post">
+<form action="{{ route('siswa.submit') }}" method="post" >
+    @csrf
     <label>NIS</label>
     <input type="number" name="nis" class="form-control mb-2">
     <label>Nama</label>
