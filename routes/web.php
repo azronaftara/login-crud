@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +22,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 Route::middleware('auth')->group(function(){
+    Route::get('/users', [UserController::class, 'index'])->name('users.list');
     Route::get('/siswa', [SiswaController::class, 'tampil'])->name('siswa.tampil');
     Route::get('/siswa/tambah', [SiswaController::class, 'tambah'])->name('siswa.tambah');
     Route::post('/siswa/submit', [SiswaController::class, 'submit'])->name('siswa.submit');

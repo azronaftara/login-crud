@@ -1,7 +1,11 @@
 @extends('layout')
 
 @section('konten')
+{{-- <form action="{{ route('user.tampil') }}" method="GET">
+    <button type="submit" class="btn btn-info">List Users</button>
+</form> --}}
 
+<a href="{{ route('users.list') }}" class="btn btn-primary">List Users</a>
 
 <div class="d-flex ">
     <h4>List Siswa</h4>
@@ -23,18 +27,18 @@
     </tr>
     @foreach ($siswa as $no=>$data)
     <tr>
-        <th>{{ $no+1 }}</th>
-        <th>{{ $data->nis }}</th>
-        <th>{{ $data->nama }}</th>
-        <th>{{ $data->alamat }}</th>
-        <th>{{ $data->jenis_kelamin }}</th>
-        <th>{{ $data->no_hp }}</th>
-        <th>{{ $data->hobi }}</th>
+        <td>{{ $no+1 }}</td>
+        <td>{{ $data->nis }}</td>
+        <td>{{ $data->nama }}</td>
+        <td>{{ $data->alamat }}</td>
+        <td>{{ $data->jenis_kelamin }}</td>
+        <td>{{ $data->no_hp }}</td>
+        <td>{{ $data->hobi }}</td>
         <td>
             <a href="{{ route('siswa.edit', $data->id) }}" class="btn btn-sm btn-warning">Edit</a>
             <form action="{{ route('siswa.delete', $data->id) }}" method="post">
                 @csrf
-                <button class="btn btn-sm btn-danger">Hapus</button>
+                <button class="btn btn-sm btn-danger mt-3 inline-block">Hapus</button>
             </form>
         </td>
     </tr>
