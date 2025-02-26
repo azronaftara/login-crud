@@ -8,6 +8,11 @@
     <title>Laravel Project</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <div class="text-center mt-4">
+        <h1>Selamat datang di Aplikasi CRUD Laravel 11</h1>
+        <form action="{{ route('siswa.tampil') }}" method="GET">
+            <button type="submit" class="btn btn-primary">Lihat Siswa</button>
+        </form>
+    </div>
 </body>
 </html>
